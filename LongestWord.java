@@ -93,28 +93,30 @@ public class LongestWord {
 		
 	
 	// reduce one letter from the word given
-	// return a list of string that contains all possible reduced words
+	// return a list of string that contains all possible reduced wordsa
 	public static List<String> Reduce(String wordoff){
-		List<Character> characters = new ArrayList<Character>();
-		List<Character> wholeWord = new ArrayList<Character>();
-		List<String> reducedone = new ArrayList<String>();
+		List<Character> chars = new ArrayList<Character>();
+		List<String> reducedone = new ArrayList<String>(wordoff.length());
+		String wholeword = wordoff;
 		for(char c:wordoff.toCharArray()){
-            characters.add(c);
-            wholeWord.add(c);
+            chars.add(c);
         } 
         for(int i = 0; i<wordoff.length(); i++){
-        	characters.remove(i);
+        	chars.remove(i);
             StringBuilder wordone = new StringBuilder(wordoff.length());
-    		for (Character c : characters){
-    		    wordone.append(c);
-    		String result = wordone.toString();
-    		reducedone.add(result);
-    			}
-        	characters.clear();
-        	characters.addAll(wholeWord);
-        	}	
+            for(Character ch: chars)
+            {
+                wordone.append(ch);
+            }
+            reducedone.add(wordone.toString());
+    		chars.clear();
+    		for(char c:wholeword.toCharArray()){
+                chars.add(c);
+            }
+        }
         return reducedone;
-		}
+		
+	}
 	
 	
 	//get the factorial of a given number
