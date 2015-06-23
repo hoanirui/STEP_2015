@@ -3,17 +3,32 @@ import java.util.Random;
 
 public class RollDice {
 
-	public static int rollDice(int times) {
+	public static double rollDice() {
 		// function that produce a random number within the range 1-6
+		Random num = new Random();
+		double DiceNum = num.nextInt(6) + 1;
+		return DiceNum;
+	
+
+	}
+	
+	public static double DiceAve(int times){
 		// cumulate results and calculate the average
-		int sum = 0;
+		double sum = 0;
 		for (int i = 0; i <= times; i++){
-			Random num = new Random();
-			int DiceNum = num.nextInt(6) + 1;
-			sum += DiceNum;
+			sum += RollDice.rollDice();
 		}
-		int avg = sum/times;
+		double avg = sum/times;
 		return avg;
 	}
+	
+	public static double OddEven(){
+		// addition of 2 times of rolling dices
+		double s = (RollDice.DiceAve(2) * 2);
+		return s;
+		
+	}
+	
+	
 
 }

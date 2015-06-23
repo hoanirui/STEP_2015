@@ -1,4 +1,9 @@
 import static org.junit.Assert.*;
+import java.math.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import org.junit.Test;
 
@@ -6,13 +11,31 @@ import org.junit.Test;
 public class RollDiceTest {
 
 	// idea1: call the function rollDice many times(1000, 10000)
-	// make sure the probability of each is around 1/6 within small range
-	// idea2: test average for rolling dice many times 
 	// compare to theoretical average
+	// idea2: test 
 	
 	@Test
 	public void testFairness() {
-		assertEquals(350, RollDice.rollDice(1000), 50);
+		assertEquals(3.5, RollDice.DiceAve(1000), 0.5);
+		assertEquals(3.5, RollDice.DiceAve(10000), 0.5);
+	}
+	
+	@Test
+	public void testOddEven(){
+		List<Double> sumTwo = new ArrayList<Double>();
+		for(int i = 0; i <= 100; i++){
+			sumTwo.add(RollDice.OddEven());
+		}
+		int odd = 0;
+		int even = 0;
+		for(Double nums: sumTwo){
+			if((nums % 2) != 0 ){
+				odd += 1;
+			}else{
+				even += 1;
+			}
+		}
+		assertEquals(1.0, odd/even, 0.1);
 	}
 
 }
