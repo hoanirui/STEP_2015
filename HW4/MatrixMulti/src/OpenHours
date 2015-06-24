@@ -1,0 +1,12 @@
+A // weekdays from 9 a.m. to 5 p.m
+MOTUWETHFR 09-17
+B // 24-7
+MOTUWETHFRSASU 00-24 
+C // everyday but not first M of month
+MOTUWETHFRSASU 09-17 N1MO
+D // everyday but Sunday
+MOTUWETHFRSA 09-17 
+E // 2 time periods everyday 
+MOTUWETHFRSASU 11-13 16-21 
+
+
