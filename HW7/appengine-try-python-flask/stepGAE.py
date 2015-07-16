@@ -29,23 +29,23 @@ class convertM(webapp2.RequestHandler):
         self.response.write(cgi.escape(''.join(str(ord(c)) for c in Msg)))
 
 class showM(webapp2.RequestHandler):
-	def get(self):
-		msg = self.request.get('msg')
-		url = "http://step15-krispop.appspot.com/peers"
-		getURL = urllib.urlopen(url)
-		URLs = getURL.readlines()
-		for lines in URLs:
-			line = lines.strip()+'/convert?message='+ '\n' + msg.strip()
-			self.response.write(line+' => ')
-			msgs = urllib.urlopen(line)
-			self.response.write(msgs.read()+'</br>' + '<br>')
+    def get(self):
+        msg = self.request.get('msg')
+        url = "http://step15-krispop.appspot.com/peers"
+        getURL = urllib.urlopen(url)
+        URLs = getURL.readlines()
+        for lines in URLs:
+            line = lines.strip()+'/convert?message='+ '\n' + msg.strip()
+            self.response.write(line+' => ')
+            msgs = urllib.urlopen(line)
+            self.response.write(msgs.read()+'</br>' + '<br>')
 
 class getWord(webapp2.RequestHandler):
     def get(self):
         w = self.request.get('pos')
-		word_dic = { 'noun':'Pluto', 'verb':'feel', 'adjective':'priceless', 'adverb':'hopefully'}
-		if w in word_dic:
-			self.response.write(d[w])
+        word_dic = { 'noun':'Pluto', 'verb':'feel', 'adjective':'priceless', 'adverb':'hopefully'}
+        if w in word_dic:
+            self.response.write(d[w])
 
 
 app = webapp2.WSGIApplication([
